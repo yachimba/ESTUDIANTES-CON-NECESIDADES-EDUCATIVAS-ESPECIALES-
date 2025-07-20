@@ -1,1 +1,287 @@
-“Desarrollo de un sitio web para el seguimiento de los estudiantes con necesidades educativas especiales de gti”
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educación Accesible para Estudiantes con Discapacidad Auditiva</title>
+    <!-- Carga de Tailwind CSS para un diseño responsivo y moderno -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos personalizados para la fuente Inter */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Oculta los controles por defecto del video para personalizarlos o forzar subtítulos */
+        video::-webkit-media-controls {
+            display: none !important;
+        }
+        video::-webkit-media-controls-enclosure {
+            display: none !important;
+        }
+        /* Estilo para el botón de subtítulos, si se implementa un control personalizado */
+        .custom-caption-button {
+            background-color: #3b82f6; /* Tailwind blue-500 */
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .custom-caption-button:hover {
+            background-color: #2563eb; /* Tailwind blue-600 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 flex flex-col min-h-screen">
+    <!-- Encabezado de la página -->
+    <header class="bg-blue-600 p-4 shadow-md">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-white text-3xl font-bold mb-2 md:mb-0">Aprende Fácil</h1>
+            <!-- Barra de navegación principal -->
+            <nav class="space-x-4">
+                <a href="#inicio" class="text-white hover:text-blue-200 transition-colors">Inicio</a>
+                <a href="#lecciones" class="text-white hover:text-blue-200 transition-colors">Lecciones</a>
+                <a href="#recursos" class="text-white hover:text-blue-200 transition-colors">Recursos</a>
+                <a href="#contacto" class="text-white hover:text-blue-200 transition-colors">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido principal de la página -->
+    <main class="container mx-auto p-6 flex-grow">
+        <!-- Sección de bienvenida e introducción -->
+        <section id="inicio" class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h2 class="text-4xl font-extrabold text-blue-700 mb-4">¡Bienvenido a tu espacio de aprendizaje!</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Esta plataforma está diseñada pensando en ti, para que el aprendizaje sea claro, visual y accesible.
+                Aquí encontrarás lecciones interactivas, videos con subtítulos y explicaciones en lengua de señas.
+            </p>
+            <p class="text-lg leading-relaxed">
+                Nuestro objetivo es eliminar las barreras y hacer que el conocimiento esté al alcance de todos.
+                ¡Explora y aprende a tu propio ritmo!
+            </p>
+        </section>
+
+        <!-- Sección de Accesibilidad (Controles de Texto y Contraste) -->
+        <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h3 class="text-2xl font-bold text-blue-700 mb-4">Opciones de Accesibilidad</h3>
+            <div class="flex flex-wrap gap-4 items-center">
+                <div class="flex items-center space-x-2">
+                    <label for="textSize" class="text-lg font-medium">Tamaño del Texto:</label>
+                    <button id="increaseText" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg transition-colors">+</button>
+                    <button id="decreaseText" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg transition-colors">-</button>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <label for="contrast" class="text-lg font-medium">Contraste:</label>
+                    <button id="toggleContrast" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg transition-colors">Alternar Contraste</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Lecciones Destacadas (Ejemplo de contenido educativo) -->
+        <section id="lecciones" class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h2 class="text-4xl font-extrabold text-blue-700 mb-6 text-center">Nuestras Lecciones</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Tarjeta de Lección 1 -->
+                <div class="bg-blue-50 rounded-xl shadow-md p-6 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/150x100/A7F3D0/065F46?text=Matemáticas" alt="Icono de Matemáticas" class="mb-4 rounded-lg">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-2">Introducción a las Matemáticas</h3>
+                    <p class="text-gray-700 mb-4">Conceptos básicos de suma, resta y números.</p>
+                    <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">Ver Lección</a>
+                </div>
+                <!-- Tarjeta de Lección 2 -->
+                <div class="bg-blue-50 rounded-xl shadow-md p-6 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/150x100/FECACA/991B1B?text=Ciencias" alt="Icono de Ciencias" class="mb-4 rounded-lg">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-2">El Mundo de las Ciencias</h3>
+                    <p class="text-gray-700 mb-4">Explora el cuerpo humano y el medio ambiente.</p>
+                    <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">Ver Lección</a>
+                </div>
+                <!-- Tarjeta de Lección 3 -->
+                <div class="bg-blue-50 rounded-xl shadow-md p-6 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/150x100/BFDBFE/1E40AF?text=Historia" alt="Icono de Historia" class="mb-4 rounded-lg">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-2">Historia y Cultura</h3>
+                    <p class="text-gray-700 mb-4">Descubre eventos importantes y culturas.</p>
+                    <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">Ver Lección</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Contenido Multimedia Accesible (Video con subtítulos y LSE) -->
+        <section id="recursos" class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h2 class="text-4xl font-extrabold text-blue-700 mb-6 text-center">Recursos Multimedia Accesibles</h2>
+            <div class="flex flex-col lg:flex-row gap-6">
+                <!-- Contenedor del video y el intérprete de LSE -->
+                <div class="lg:w-2/3 flex flex-col bg-gray-50 rounded-xl p-4 shadow-inner">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-4">Video Lección: El Ciclo del Agua</h3>
+                    <div class="relative w-full aspect-video bg-black rounded-lg overflow-hidden mb-4">
+                        <!-- Video de ejemplo. Se recomienda usar un video con contenido educativo real.
+                             El atributo 'crossorigin="anonymous"' es importante para que los subtítulos funcionen
+                             correctamente si el video y el archivo VTT están en diferentes dominios.
+                             'controlsList="nodownload"' para evitar la descarga del video. -->
+                        <video id="mainVideo" class="w-full h-full object-cover" controls playsinline preload="metadata" crossorigin="anonymous" controlsList="nodownload">
+                            <!-- Fuente del video (ejemplo, reemplazar con un video real) -->
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            <!-- Pista de subtítulos en español (WebVTT). Reemplazar con tu propio archivo .vtt -->
+                            <track kind="captions" label="Español" srclang="es" src="https://www.w3schools.com/html/captions.vtt" default>
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                        <!-- Área para el intérprete de lengua de señas.
+                             Podría ser un video superpuesto o un avatar animado. -->
+                        <div class="absolute bottom-2 right-2 w-1/4 h-1/4 bg-blue-200 rounded-lg border-2 border-blue-500 flex items-center justify-center text-blue-700 font-semibold text-sm p-1">
+                            [Intérprete LSE Aquí]
+                            <!-- Aquí iría el video del intérprete o un avatar -->
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm italic">
+                        Nota: Los subtítulos están activados por defecto. Puedes ajustar el volumen o pausar el video.
+                    </p>
+                </div>
+
+                <!-- Transcripción del video -->
+                <div class="lg:w-1/3 bg-gray-50 rounded-xl p-4 shadow-inner">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-4">Transcripción Completa</h3>
+                    <div id="videoTranscript" class="text-gray-700 text-base leading-relaxed h-64 overflow-y-auto border border-gray-200 rounded-lg p-3 bg-white">
+                        <!-- El contenido de la transcripción se cargará aquí dinámicamente o se puede pre-cargar -->
+                        <p><strong>Narrador:</strong> El ciclo del agua es un proceso fundamental en la Tierra.</p>
+                        <p><strong>Narrador:</strong> Comienza con la evaporación del agua de los océanos y cuerpos de agua.</p>
+                        <p><strong>Narrador:</strong> El vapor de agua sube a la atmósfera y se condensa para formar nubes.</p>
+                        <p><strong>Narrador:</strong> Luego, el agua cae de las nubes en forma de precipitación: lluvia, nieve o granizo.</p>
+                        <p><strong>Narrador:</strong> Esta agua regresa a los océanos, ríos y lagos, o se filtra en el suelo.</p>
+                        <p><strong>Narrador:</strong> Y el ciclo se repite, una y otra vez, manteniendo la vida en nuestro planeta.</p>
+                        <p><strong>Narrador:</strong> Es un sistema perfecto y continuo.</p>
+                    </div>
+                    <button onclick="copyTranscript()" class="custom-caption-button mt-4 w-full">Copiar Transcripción</button>
+                    <div id="copyMessage" class="text-sm text-green-600 mt-2 hidden">¡Transcripción copiada!</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto y Soporte -->
+        <section id="contacto" class="bg-white rounded-xl shadow-lg p-8">
+            <h2 class="text-4xl font-extrabold text-blue-700 mb-6 text-center">Contáctanos</h2>
+            <p class="text-lg leading-relaxed mb-6 text-center">
+                Si tienes alguna pregunta, sugerencia o necesitas ayuda, no dudes en contactarnos.
+                Estamos aquí para apoyarte.
+            </p>
+            <form class="max-w-md mx-auto space-y-4">
+                <div>
+                    <label for="name" class="block text-gray-700 text-lg font-medium mb-2">Tu Nombre:</label>
+                    <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Escribe tu nombre">
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-700 text-lg font-medium mb-2">Tu Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="ejemplo@correo.com">
+                </div>
+                <div>
+                    <label for="message" class="block text-gray-700 text-lg font-medium mb-2">Tu Mensaje:</label>
+                    <textarea id="message" name="message" rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Escribe tu mensaje aquí..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-blue-800 text-white p-6 text-center mt-8">
+        <div class="container mx-auto">
+            <p>&copy; 2025 Aprende Fácil. Todos los derechos reservados.</p>
+            <p class="text-sm mt-2">Diseñado con accesibilidad en mente para la comunidad sorda.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript para funcionalidades de accesibilidad y video
+
+        // 1. Controles de Tamaño de Texto
+        const body = document.body;
+        const increaseTextBtn = document.getElementById('increaseText');
+        const decreaseTextBtn = document.getElementById('decreaseText');
+        let currentFontSize = 16; // Tamaño de fuente base en px
+
+        increaseTextBtn.addEventListener('click', () => {
+            currentFontSize += 2; // Aumenta el tamaño en 2px
+            body.style.fontSize = `${currentFontSize}px`;
+        });
+
+        decreaseTextBtn.addEventListener('click', () => {
+            if (currentFontSize > 12) { // Evita que el texto sea demasiado pequeño
+                currentFontSize -= 2; // Disminuye el tamaño en 2px
+                body.style.fontSize = `${currentFontSize}px`;
+            }
+        });
+
+        // 2. Alternar Contraste (Modo Oscuro/Alto Contraste)
+        const toggleContrastBtn = document.getElementById('toggleContrast');
+        let highContrastMode = false;
+
+        toggleContrastBtn.addEventListener('click', () => {
+            highContrastMode = !highContrastMode;
+            if (highContrastMode) {
+                body.classList.add('bg-gray-900', 'text-gray-100');
+                body.classList.remove('bg-gray-100', 'text-gray-800');
+                // Ajustar colores de secciones para alto contraste
+                document.querySelectorAll('section, .bg-blue-50').forEach(el => {
+                    el.classList.add('bg-gray-800', 'text-gray-100', 'border', 'border-gray-600');
+                    el.classList.remove('bg-white', 'bg-blue-50', 'text-gray-800');
+                });
+                document.querySelectorAll('h1, h2, h3').forEach(el => {
+                    el.classList.add('text-blue-400');
+                    el.classList.remove('text-blue-700', 'text-blue-800');
+                });
+                document.querySelectorAll('a.bg-blue-500').forEach(el => {
+                    el.classList.add('bg-blue-700', 'hover:bg-blue-800');
+                    el.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+                });
+            } else {
+                body.classList.remove('bg-gray-900', 'text-gray-100');
+                body.classList.add('bg-gray-100', 'text-gray-800');
+                // Restaurar colores de secciones
+                document.querySelectorAll('section, .bg-gray-800').forEach(el => {
+                    el.classList.remove('bg-gray-800', 'text-gray-100', 'border', 'border-gray-600');
+                    el.classList.add('bg-white', 'text-gray-800');
+                });
+                // Restaurar colores específicos para las tarjetas de lección
+                document.querySelectorAll('.bg-blue-50').forEach(el => {
+                    el.classList.remove('bg-gray-800', 'text-gray-100', 'border', 'border-gray-600');
+                    el.classList.add('bg-blue-50', 'text-gray-800');
+                });
+                document.querySelectorAll('h1, h2, h3').forEach(el => {
+                    el.classList.remove('text-blue-400');
+                    el.classList.add('text-blue-700', 'text-blue-800');
+                });
+                document.querySelectorAll('a.bg-blue-700').forEach(el => {
+                    el.classList.remove('bg-blue-700', 'hover:bg-blue-800');
+                    el.classList.add('bg-blue-500', 'hover:bg-blue-600');
+                });
+            }
+        });
+
+        // 3. Funcionalidad de copiar transcripción
+        function copyTranscript() {
+            const transcriptElement = document.getElementById('videoTranscript');
+            const transcriptText = transcriptElement.innerText; // Obtiene el texto visible
+            const copyMessage = document.getElementById('copyMessage');
+
+            // Usa document.execCommand('copy') para compatibilidad con iframes
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = transcriptText;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            try {
+                document.execCommand('copy');
+                copyMessage.classList.remove('hidden');
+                setTimeout(() => {
+                    copyMessage.classList.add('hidden');
+                }, 2000); // Oculta el mensaje después de 2 segundos
+            } catch (err) {
+                console.error('Error al copiar la transcripción:', err);
+                // Podrías mostrar un mensaje de error al usuario si la copia falla
+            } finally {
+                document.body.removeChild(tempTextArea);
+            }
+        }
+    </script>
+</body>
+</html>
+
